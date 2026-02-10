@@ -27,4 +27,45 @@ public class WebFormPageTests extends BaseTest {
         webFormSteps.openWebForm();
         webFormSteps.checkWebFormTitleIsVisible();
     }
+
+    @Test
+    @DisplayName("Пользователь успешно заполнил и отправил форму")
+    void webFormSmokeTest(){
+        webFormSteps.openWebForm();
+        webFormSteps.fillTextInput();
+        webFormSteps.fillTextArea();
+        webFormSteps.selectDropdownOption();
+        webFormSteps.submitForm();
+        webFormSteps.shouldSeeFormSubmitted();
+    }
+
+    @Test
+    @DisplayName("Пользователь успешно отправляет форму без заполнения полей")
+    void webFormSubmitEmptyFieldsTest(){
+        webFormSteps.openWebForm();
+        webFormSteps.submitForm();
+        webFormSteps.shouldSeeFormSubmitted();
+    }
+
+    @Test
+    @DisplayName("Проверка, что Disabled поле недоступно для ввода")
+    void checkDisabledInputIsDisabled(){
+        webFormSteps.openWebForm();
+        webFormSteps.checkDisabledInputIsDisabled();
+    }
+
+    @Test
+    @DisplayName("Проверка, что Readonly поле доступно только для чтения")
+    void checkReadOnlyInputIsReadOnly(){
+        webFormSteps.openWebForm();
+        webFormSteps.checkReadOnlyInputIsReadOnly();
+    }
+
+    @Test
+    @DisplayName("Проверка, что 'Checked Checkbox' отмечен")
+    void shouldSeeCheckedCheckbox(){
+        webFormSteps.openWebForm();
+        webFormSteps.shouldSeeCheckedCheckbox();
+    }
 }
+
