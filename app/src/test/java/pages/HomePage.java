@@ -7,6 +7,8 @@ import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Condition.text;
+
 
 public class HomePage {
 
@@ -23,5 +25,7 @@ public class HomePage {
         return $("img.img-fluid");
     }
 
-    
+    public void clickMenuItem(String name){
+        menuLinks().findBy(text(name)).click();
+    }
 }
