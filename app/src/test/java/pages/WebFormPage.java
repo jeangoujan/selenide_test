@@ -3,7 +3,6 @@ import static com.codeborne.selenide.Selenide.open;
 
 import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.$;
 import com.codeborne.selenide.SelenideElement;
 
