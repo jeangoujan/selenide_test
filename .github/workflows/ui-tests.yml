@@ -1,0 +1,26 @@
+name: UI Tests
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Make gradlew executable
+        run: chmod +x gradlew
+      
+      - name: Run Tests
+        run: ./gradlew clean test
+        env:
+          LOGIN_USERNAME: ${{ secrets.LOGIN_USERNAME }}
+          LOGIN_PASSWORD: ${{ secrets.LOGIN_PASSWORD }}
