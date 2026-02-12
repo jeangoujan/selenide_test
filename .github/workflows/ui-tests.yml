@@ -25,8 +25,13 @@ jobs:
           LOGIN_USERNAME: ${{ secrets.LOGIN_USERNAME }}
           LOGIN_PASSWORD: ${{ secrets.LOGIN_PASSWORD }}
 
-      - name: Generate Allure report 
-        uses: simple-elf/allure-report-action@v1 
-        with:
-          allure_results: app/allure-results 
-          allure_report: app/allure-report 
+      - name: Install Allure CLI
+      - run: |
+          wget https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.29.0/allure-commandline-2.29.0.zip
+          unzip allure-commandline-2.29.0.zip
+          sudo mv allure-2.29.0 /opt/allure
+          sudo ln -s /opt/allure/bin/allure /usr/bin/allure
+
+      - name: Generate Allure report
+        run: |
+          allure generate app/allure-results --clean -o app/allure-report
