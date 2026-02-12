@@ -20,6 +20,9 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x gradlew
 
+      - name: Clean previous Allure results
+        run: rm -rf app/allure-results/
+        
       - name: Run tests
         run: ./gradlew clean test --no-configuration-cache --rerun-tasks
         env:

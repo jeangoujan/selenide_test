@@ -6,3 +6,6 @@ build
 
 .vscode/
 
+app/allure-results/
+app/allure-report/
+
