@@ -4,13 +4,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+
 import com.codeborne.selenide.WebDriverRunner;
 import Base.BaseTest;
 import steps.WebFormSteps;
 
 
 
-@Epic("UI тесты страницы Веб-формы")
+@Epic("UI тесты")
+@Feature("Веб-форма")
 public class WebFormPageTests extends BaseTest {
     WebFormSteps webFormSteps = new WebFormSteps();
 

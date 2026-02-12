@@ -5,9 +5,11 @@ import org.junit.jupiter.api.Test;
 
 import Base.BaseTest;
 import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import steps.DragAndDropSteps;
 
-@Epic("UI тесты страницы Drag and Drop")
+@Epic("UI тесты")
+@Feature("Drag and Drop")
 public class DragAndDropTests extends BaseTest {
     
 

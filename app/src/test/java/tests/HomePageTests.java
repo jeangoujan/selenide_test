@@ -4,6 +4,7 @@ import static com.codeborne.selenide.CollectionCondition.size;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import pages.HomePage;
 import com.codeborne.selenide.WebDriverRunner;
 import Base.BaseTest;
@@ -12,7 +13,8 @@ import steps.HomeSteps;
 
 
 
-@Epic("UI тесты главной страницы")
+@Epic("UI тесты")
+@Feature("Главная страница")
 public class HomePageTests extends BaseTest {
     HomeSteps homeSteps = new HomeSteps();
 

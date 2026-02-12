@@ -6,10 +6,12 @@ import org.junit.jupiter.api.Test;
 
 import Base.BaseTest;
 import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import steps.LoginFormSteps;
 
 
-@Epic("UI тесты страницы логин-формы")
+@Epic("UI тесты")
+@Feature("Логин форма")
 public class LoginFormPageTests extends BaseTest {
     LoginFormSteps loginFormSteps = new LoginFormSteps();
 

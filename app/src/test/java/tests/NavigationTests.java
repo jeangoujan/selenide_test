@@ -5,8 +5,10 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 
-@Epic("UI тесты по навигации меню")
+@Epic("UI тесты")
+@Feature("Навигация")
 public class NavigationTests {
     HomeSteps homeSteps = new HomeSteps();
 
