@@ -21,7 +21,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: Run tests
-        run: ./gradlew clean test
+        run: ./gradlew clean test --no-configuration-cache --rerun-tasks
         env:
           LOGIN_USERNAME: ${{ secrets.LOGIN_USERNAME }}
           LOGIN_PASSWORD: ${{ secrets.LOGIN_PASSWORD }}
@@ -45,7 +45,7 @@ jobs:
             mkdir -p app/allure-results/history
             cp -r gh-pages/history/* app/allure-results/history/
           fi
-             
+
       - name: Generate Allure Report
         run: |
           allure generate app/allure-results --clean -o app/allure-report
