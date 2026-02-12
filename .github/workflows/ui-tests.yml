@@ -26,6 +26,12 @@ jobs:
           LOGIN_USERNAME: ${{ secrets.LOGIN_USERNAME }}
           LOGIN_PASSWORD: ${{ secrets.LOGIN_PASSWORD }}
 
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: gh-pages 
+
       - name: Install Allure CLI
         run: |
           wget https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.29.0/allure-commandline-2.29.0.zip
@@ -33,6 +39,13 @@ jobs:
           sudo mv allure-2.29.0 /opt/allure
           sudo ln -s /opt/allure/bin/allure /usr/bin/allure
 
+      - name: Copy Allure history
+        run: |
+          if [ -d "gh-pages/history" ]; then
+            mkdir -p app/allure-results/history
+            cp -r gh-pages/history/* app/allure-results/history/
+          fi
+             
       - name: Generate Allure Report
         run: |
           allure generate app/allure-results --clean -o app/allure-report
